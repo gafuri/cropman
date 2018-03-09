@@ -4,6 +4,19 @@ Requirements
 - OpenCV
 - Docopt (Console)
 
+Installation procedure
+----------------------
+
+Following works perfect on MacOS:
+
+```
+git clone https://github.com/gafuri/cropman.git
+cd cropman/
+python3 -m venv .venv
+source .venv/bin/activate
+pip install Numpy opencv-python docopt
+```
+
 
 Cropman Console
 ---------------
@@ -14,6 +27,14 @@ Cropman Console
     Options:
       -h --help     Show this screen.
       --version     Show version.
+
+Batch Cropman
+-------------
+
+    Usage:
+      sh bash.py
+
+It will proccess all the files from input and put results into output folder.
 
 Examples
 --------
@@ -143,3 +164,9 @@ app-console.py input.jpg 10 10 output.jpg
 ```
 
 ![](https://raw.githubusercontent.com/ufoym/cropman/gh-pages/images/10x10.jpg)
+
+
+@ToDo:
+------
+
+[] Add parameters to ```sh bash.sh```

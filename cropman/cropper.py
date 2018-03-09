@@ -10,7 +10,7 @@
 """
 
 import sys
-from detector import Detector
+from .detector import Detector
 
 # ----------------------------------------------------------------------------
 
@@ -22,8 +22,8 @@ class Cropper(object):
 
     @staticmethod
     def _bounding_rect(faces):
-        top,    left  =  sys.maxint,  sys.maxint
-        bottom, right = -sys.maxint, -sys.maxint
+        top,    left  =  sys.maxsize,  sys.maxsize
+        bottom, right = -sys.maxsize, -sys.maxsize
         for (x, y, w, h) in faces:
             if x < left:
                 left = x
@@ -45,10 +45,10 @@ class Cropper(object):
             top, left, bottom, right  = self._bounding_rect(faces)
             target_center_x = (left + right) / 2
             target_center_y = (top + bottom) / 2
-        target_left = target_center_x - target_width / 2
-        target_right = target_left + target_width
-        target_top = target_center_y - target_height / 2
-        target_bottom = target_top + target_height
+        target_left = int(target_center_x - target_width / 2)
+        target_right = int(target_left + target_width)
+        target_top = int(target_center_y - target_height / 2)
+        target_bottom = int(target_top + target_height)
         if target_top < 0:
             delta = abs(target_top)
             target_top += delta

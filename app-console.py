@@ -32,12 +32,12 @@ if __name__ == '__main__':
     cropper = Cropper()
     input_image = cv2.imread(input_filename)
     if input_image is None:
-        print 'Invalid input image. Please check %s' % input_filename
+        print('Invalid input image. Please check %s' % input_filename)
     else:
         target_image = cropper.crop(input_image, target_width, target_height)
         if target_image is None:
-            print 'Cropping failed.'
+            print('Cropping failed.')
         else:
             cv2.imwrite(target_filename, target_image)
-            print '\nDone. \nResult: %s' % target_filename
+            print('\nDone. \nResult: %s' % target_filename)
 
